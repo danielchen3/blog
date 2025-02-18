@@ -1,60 +1,97 @@
-.square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
 
-  .button-modern {
-    /* 基础样式 */
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    
-    /* 渐变背景 */
-    background: linear-gradient(135deg, #6e8efb, #4a6cf7);
-    color: white;
-    
-    /* 阴影效果 */
-    box-shadow: 0 4px 15px rgba(74, 108, 247, 0.2);
-    
-    /* 平滑过渡 */
-    transition: all 0.3s ease;
-  }
-  
-  /* 悬停效果 */
-  .button-modern:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 108, 247, 0.3);
-    background: linear-gradient(135deg, #4a6cf7, #6e8efb);
-  }
-  
-  /* 点击效果 */
-  .button-modern:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(74, 108, 247, 0.2);
-  }
-  
-  /* 禁用状态 */
-  .button-modern:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-  }
+/* Header Styles */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content Styles */
+.main-content {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out; 
+  position: relative;
+}
+
+.post:hover {
+  transform: scale(1.05); 
+}
+
+.post h2 {
+  margin-top: 0;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.star-checkbox {
+  display: none;  /* 隐藏复选框 */
+}
+
+.star-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+/* 复选框被选中时的样式 */
+.star-checkbox:checked + .star-label {
+  color: yellow;
+}
