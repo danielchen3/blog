@@ -1,0 +1,54 @@
+.header {
+    text-align: center; /* 标题居中 */
+    padding: 20px 0;    /* 给 header 一些内边距，美观起见 */
+    background-color: #f8f9fa; /* 浅灰背景，增加层次感 */
+  }
+  
+  .nav-menu {
+    margin-top: 15px;   /* 导航整体向下移动 15px */
+  }
+  
+  .nav-list {
+    display: flex;          /* 水平排列 */
+    gap: 3rem;             /* 按钮间距增大到 3rem（之前是 2rem） */
+    list-style: none;      /* 移除默认列表样式 */
+    padding: 0;            /* 移除默认内边距 */
+    justify-content: center; /* 导航居中 */
+  }
+  
+  .nav-button {
+    background-color: #e9ecef; /* 浅灰背景，按钮感更强 */
+    border: none;          /* 无边框 */
+    color: #007bff;        /* 蓝色文字 */
+    font-size: 1.2rem;     /* 字体大小 */
+    padding: 0.5rem 1.5rem; /* 增加水平内边距，拉长按钮 */
+    border-radius: 5px;    /* 圆角效果 */
+    cursor: pointer;       /* 手型光标 */
+    transition: all 0.3s ease; /* 平滑过渡效果 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 轻微阴影，提升立体感 */
+  }
+  
+  .nav-button:hover {
+    background-color: #007bff; /* 悬停时背景变为蓝色 */
+    color: #fff;           /* 文字变为白色 */
+    transform: translateY(-2px); /* 轻微上移，增加动态感 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影加深 */
+  }
+  
+  .nav-button:focus {
+    outline: none;         /* 移除默认焦点边框 */
+    background-color: #0056b3; /* 焦点时颜色稍暗 */
+    color: #fff;
+  }
+  
+  /* 响应式设计（可选） */
+  @media (max-width: 600px) {
+    .nav-list {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .nav-button {
+      width: 100%; /* 移动端按钮占满宽度 */
+      padding: 0.75rem;
+    }
+  }
