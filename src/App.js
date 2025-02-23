@@ -7,7 +7,7 @@ import './styles.css';
 
 export default function App(){
 
-  const [posts, setPosts] = useState([
+  const init_posts = [
     {
       id: 1,
       title: 'First Post',
@@ -22,7 +22,13 @@ export default function App(){
       author: 'ccx',
       date: '2025-01-01',
     },
-  ]);
+  ];
+
+  const [posts, setPosts] = useState(() => {
+      const local_posts = localStorage.getItem('posts');
+      return local_posts ? JSON.parse(local_posts) : init_posts;
+    }
+  );
 
   const [id, setId] = useState(3);
 
@@ -31,18 +37,21 @@ export default function App(){
   const [mode, setMode] = useState('home');
 
   const add_post = (id) => {
-    setPosts([...posts, {
+    const new_posts = [...posts, {
       id: id,
       title: `This is the ${id} post`,
       content: `This is the content of the ${id} post.`,
       author: 'ccx',
       date: new Date().toISOString().split('T')[0],
-    }]);
+    }];
+    setPosts(new_posts);
+    localStorage.setItem('posts', JSON.stringify(new_posts));
   };
   
   const delete_post = (id) => {
-    console.log("delete" + id);
-    setPosts(posts.filter(post => post.id !== id));
+    const deleted_post = posts.filter(post => post.id !== id);
+    setPosts(deleted_post);
+    localStorage.setItem('posts', JSON.stringify(deleted_post));
   };
 
   const delete_click = (id) => {console.log("delete" + id); delete_post(id)}
@@ -51,10 +60,22 @@ export default function App(){
     setMode(mode);
   }
 
+  const reset = () => {
+    setPosts(init_posts);
+    localStorage.setItem('posts', JSON.stringify(init_posts));
+  }
+
+  const clearLocalStorage = () => {
+    localStorage.removeItem('posts');
+    setPosts(init_posts);
+  }
+
   const post = () => {return (mode === 'home') && (
     <>
       <button onClick={() => {add_post(id); setId(id+1)}}>Add Post</button>
-      <button id="delete-button" onClick={() => {setIsDeleteMode(!isDeleteMode)}}> Delete Post </button>
+      <button id="delete-button" onClick={() => {setIsDeleteMode(!isDeleteMode)}}>Delete Post</button>
+      <button onClick={reset}>Reset</button>
+      <button id="clear-button" onClick={clearLocalStorage}>Clear Storage</button>
       {
         posts.map((post) => (
         <>

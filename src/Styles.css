@@ -59,6 +59,11 @@ body {
   margin: 20px;
 }
 
+#clear-button{
+  background-color: pink;
+  margin: 20px;
+}
+
 #post-delete-button{
   margin: 5px;
 }
@@ -114,6 +119,32 @@ body {
   font-size: 24px;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
+}
+
+.post .post-edit-button {
+  position: absolute;
+  background-color: #7d4caf;
+  padding: 5px 10px;
+  top: 50px;
+  right: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.post .post-edit-button:hover {
+  background-color: #6e07e3;
+}
+
+.post .post-save-button {
+  position: absolute;
+  background-color: #7d4caf;
+  padding: 5px 10px;
+  top: 90px;
+  right: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.post .post-save-button:hover {
+  background-color: #6e07e3;
 }
 
 /* 复选框被选中时的样式 */
