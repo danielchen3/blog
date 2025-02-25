@@ -3,6 +3,7 @@ import { useState} from 'react';
 import Header from './components/Header';
 import Post from './components/Post';
 import Footer from './components/Footer';
+import contact from './components/Contact';
 import './styles.css';
 
 export default function App(){
@@ -102,14 +103,6 @@ export default function App(){
     )
   }
 
-  const contact = () => {
-    return (mode === 'contact') && (
-      <div>
-        <h1>Contact</h1>
-        <p>Contact information is following <span>daniel.cx.chen@outlook.com</span></p>
-      </div>
-    )
-  }
 
   return (
     <div className="app">
@@ -117,7 +110,7 @@ export default function App(){
       <main className="main-content">
         {post()}
         {about()}
-        {contact()}
+        {mode === 'contact' && contact()}
       </main>
       <Footer />
     </div>
